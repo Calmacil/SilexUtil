@@ -1,0 +1,19 @@
+{
+  "name": "calmacil/silex-utils",
+  "version": "1.0",
+  "description": "A set of utility tools to accompany Silex applications",
+  "authors": [
+    {
+      "name": "Calmacil",
+      "email": "thomas.lenoel@gmail.com"
+    }
+  ],
+  "require": {
+    "silex/silex" : "~2.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Calma\\Silex\\" : "src"
+    }
+  }
+}
