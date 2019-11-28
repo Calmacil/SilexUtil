@@ -94,6 +94,7 @@ trait AppConfigTrait {
     }
   }
 
+  // FIXME set up project root namespace instead of Nephilim
   private function getClassName(string $namespace): string {
     return "\\Nephilim\\" . str_replace('/', '\\', $namespace);
   }
