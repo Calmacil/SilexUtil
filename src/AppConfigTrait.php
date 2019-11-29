@@ -1,5 +1,5 @@
 <?php
-namespace Calma\Silex;
+namespace Calma\SilexUtils;
 
 if (!defined('ROOT')) {
   define('ROOT', __DIR__ . '/../../../');

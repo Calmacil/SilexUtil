@@ -13,7 +13,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Calma\\Silex\\" : "src"
+      "Calma\\SilexUtils\\" : "src"
     }
   }
 }
