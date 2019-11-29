@@ -1,6 +1,6 @@
 {
   "name": "calmacil/silex-utils",
-  "version": "1.0",
+  "version": "1.0.0",
   "description": "A set of utility tools to accompany Silex applications",
   "authors": [
     {
