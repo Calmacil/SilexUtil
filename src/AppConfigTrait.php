@@ -15,12 +15,30 @@ if (!defined('ROOT')) {
 trait AppConfigTrait {
   
   /**
+   * Inits the whole application
+   * 
+   * @param string $path  The path of the settings file.
+   * @return void
+   */
+  public function init(string $path = null): void
+  {
+    if (!isset($this->rootNamespace)) {
+      $this->rootNamespace = "Calma";
+    }
+    
+    $this->loadConfig($path);
+    $this->loadRoutes();
+    $this->loadServices();
+  }
+  
+  /**
    * Loads the settings file
    * 
    * @param string $path The path of the settings file. Defaults to ROOT/config/settings{_env}.yml
    * @return void
    */
-  private function loadConfig(string $path = null): void {
+  private function loadConfig(string $path = null): void
+  {
     $file = ROOT . '/config/settings' . $this->environment . '.yml';
     if ($path) {
       $file = ROOT . $path;
@@ -41,7 +59,8 @@ trait AppConfigTrait {
    * @param string $path The path of the routing file. Defaults to ROOT/config/routes.yml
    * @return void
    */
-  private function loadRoutes(string $path = null): void {
+  private function loadRoutes(string $path = null): void
+  {
     $file = ROOT . '/config/routes.yml';
     if ($path) {
       $file = ROOT . $path;
@@ -78,7 +97,8 @@ trait AppConfigTrait {
    * @param string $path The path of the services file. Defaults to ROOT/config/services.yml
    * @return void
    */
-  private function loadServices(string $path = null): void {
+  private function loadServices(string $path = null): void
+  {
     $file = ROOT . '/config/services.yml';
     if ($path) {
       $file = ROOT.$path;
@@ -95,14 +115,16 @@ trait AppConfigTrait {
   }
 
   // FIXME set up project root namespace instead of Nephilim
-  private function getClassName(string $namespace): string {
-    return "\\Nephilim\\" . str_replace('/', '\\', $namespace);
+  private function getClassName(string $namespace): string
+  {
+    return "\\" . $this->rootNamespace . "\\" . str_replace('/', '\\', $namespace);
   }
 
   /**
    * Callback for settings loading
    */
-  private function compileSettings(&$item, $key) {
+  private function compileSettings(&$item, $key)
+  {
     if (is_array($item)) {
       array_walk($item, 'self::compileSettings');
     } else {
